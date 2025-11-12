@@ -129,11 +129,6 @@ class Ikarus_IK:
             self.smooth_filter.add_data(sol_q)
             sol_q=self.smooth_filter.filtered_data
 
-            #simple velocity placeholder (keeping same behavior as unitree sample)
-            if current_arm_dq is not None:
-                v=current_arm_dq*0.0                           #zero velocities if provided externally
-            else:
-                v=(sol_q-self.init_data)*0.0                   #or zero based on delta-q (kept for api symmetry)
 
             #update last accepted q
             self.init_data=sol_q
