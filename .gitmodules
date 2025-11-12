@@ -1,0 +1,3 @@
+[submodule "icarus_urdf_stack"]
+	path = icarus_urdf_stack
+	url = https://github.com/ORBIT-Robotics/icarus_urdf_stack.git
