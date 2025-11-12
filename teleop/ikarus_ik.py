@@ -170,3 +170,7 @@ class Ikarus_IK:
         #fallback: return prior q and zero torques if available, matching unitree pattern
         return current_arm_q, np.zeros(self.reduced_robot.model.nv)
 
+
+class Ikarus_CLIK:
+    #TODO: to be implemented
+    pass
