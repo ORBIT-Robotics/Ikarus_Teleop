@@ -6,6 +6,8 @@ import time
 import os 
 import sys
 
+"""Two IK controllers: NLP based and Differential QP based (clik)"""
+
 class Ikarus_IK:
     def __init__(self):
 
@@ -32,7 +34,21 @@ class Ikarus_IK:
 
 
 
-        self.cmodel = cpin.Model(self.reduced_robot.model)
-        self.cdata = self.cmodel.createData()
+        self.cmodel = cpin.Model(self.reduced_robot.model) #symbolic casadi model
+        self.cdata = self.cmodel.createData() #allocates runtime buffers, where jacobians, etc are stored
 
+        self.cq = casadi.SX.sym("q", self.reduced_robot.model.nq,1) #symbolic joint position
+        self.cTf_r = casadi.SX.sym("ee_T", 4, 4) #transformation matrix of right end-effector
         
+        cpin.framesForwardKinematics(self.cmodel, self.cdata, self.cq)
+
+        self.R_hand_id = self.cmodel.getFrameId("R_ee")
+
+        self.translational_error = casadi.Function(
+            "translational_error",
+            [self.cq, self.cTf_r],
+            
+
+        )
+
+
