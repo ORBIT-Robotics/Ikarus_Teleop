@@ -106,72 +106,72 @@ class Ikarus_IK:
         self.vis=None
 
 
-        def solve_ik(self,right_palm,current_arm_q=None,current_arm_dq=None):
-            #right_palm:4x4 target pose (world->palm) from meta quest after world alignment
-            #current_arm_q:optional seed for q (size nq), if provided we start from it
-            #current_arm_dq:optional measured joint velocities (size nv), only used for rnea feedforward zeroing here
+    def solve_ik(self,right_palm,current_arm_q=None,current_arm_dq=None):
+        #right_palm:4x4 target pose (world->palm) from meta quest after world alignment
+        #current_arm_q:optional seed for q (size nq), if provided we start from it
+        #current_arm_dq:optional measured joint velocities (size nv), only used for rnea feedforward zeroing here
 
-            #seed the solver with last q or provided seed
-            if current_arm_q is not None:
-                self.init_data=current_arm_q
-            self.opti.set_initial(self.var_q,self.init_data)
+        #seed the solver with last q or provided seed
+        if current_arm_q is not None:
+            self.init_data=current_arm_q
+        self.opti.set_initial(self.var_q,self.init_data)
 
-            #set runtime parameters: target pose and smoothness reference
-            self.opti.set_value(self.param_tf_r,right_palm)        #target pose goes into the Opti parameter
-            self.opti.set_value(self.var_q_last,self.init_data)    #smoothness reference is last accepted q
+        #set runtime parameters: target pose and smoothness reference
+        self.opti.set_value(self.param_tf_r,right_palm)        #target pose goes into the Opti parameter
+        self.opti.set_value(self.var_q_last,self.init_data)    #smoothness reference is last accepted q
 
-            try:
-                #solve the nlp
-                sol=self.opti.solve()
-                sol_q=self.opti.value(self.var_q)                  #extract optimal q
+        try:
+            #solve the nlp
+            sol=self.opti.solve()
+            sol_q=self.opti.value(self.var_q)                  #extract optimal q
 
-                #apply temporal smoothing on q to reduce jitter
-                self.smooth_filter.add_data(sol_q)
-                sol_q=self.smooth_filter.filtered_data
+            #apply temporal smoothing on q to reduce jitter
+            self.smooth_filter.add_data(sol_q)
+            sol_q=self.smooth_filter.filtered_data
 
-                #simple velocity placeholder (keeping same behavior as unitree sample)
-                if current_arm_dq is not None:
-                    v=current_arm_dq*0.0                           #zero velocities if provided externally
-                else:
-                    v=(sol_q-self.init_data)*0.0                   #or zero based on delta-q (kept for api symmetry)
+            #simple velocity placeholder (keeping same behavior as unitree sample)
+            if current_arm_dq is not None:
+                v=current_arm_dq*0.0                           #zero velocities if provided externally
+            else:
+                v=(sol_q-self.init_data)*0.0                   #or zero based on delta-q (kept for api symmetry)
 
-                #update last accepted q
-                self.init_data=sol_q
+            #update last accepted q
+            self.init_data=sol_q
 
-                #feedforward torques from rnea (optional output for torque control)
-                #sol_tauff=pin.rnea(self.reduced_robot.model,
-                 #           self.reduced_robot.data,
-                  #          sol_q,
-                  #          v,
-                   #         np.zeros(self.reduced_robot.model.nv))
+            #feedforward torques from rnea (optional output for torque control)
+            #sol_tauff=pin.rnea(self.reduced_robot.model,
+             #           self.reduced_robot.data,
+              #          sol_q,
+               #         v,
+                #        np.zeros(self.reduced_robot.model.nv))
 
 
-                return sol_q
+            return sol_q
 
-            except Exception as e:
-                #on failure: log, pull debug q, smooth, and return fallback like unitree code
-                logger_mp.error(f"ERROR in convergence, plotting debug info.{e}")
+        except Exception as e:
+            #on failure: log, pull debug q, smooth, and return fallback like unitree code
+            logger_mp.error(f"ERROR in convergence, plotting debug info.{e}")
 
-                sol_q=self.opti.debug.value(self.var_q)            #debug q from failed solve
-                self.smooth_filter.add_data(sol_q)
-                sol_q=self.smooth_filter.filtered_data
+            sol_q=self.opti.debug.value(self.var_q)            #debug q from failed solve
+            self.smooth_filter.add_data(sol_q)
+            sol_q=self.smooth_filter.filtered_data
 
-                if current_arm_dq is not None:
-                    v=current_arm_dq*0.0
-                else:
-                    v=(sol_q-self.init_data)*0.0
+            if current_arm_dq is not None:
+                v=current_arm_dq*0.0
+            else:
+                v=(sol_q-self.init_data)*0.0
 
-                self.init_data=sol_q
+            self.init_data=sol_q
 
-                sol_tauff=pin.rnea(self.reduced_robot.model,
-                                    self.reduced_robot.data,
-                                    sol_q,
-                                    v,
-                                    np.zeros(self.reduced_robot.model.nv))
+            sol_tauff=pin.rnea(self.reduced_robot.model,
+                                self.reduced_robot.data,
+                                sol_q,
+                                v,
+                                np.zeros(self.reduced_robot.model.nv))
 
-                logger_mp.error(f"sol_q:{sol_q} \nmotorstate:\n{current_arm_q} \nright_pose:\n{right_palm}")
-                
+            logger_mp.error(f"sol_q:{sol_q} \nmotorstate:\n{current_arm_q} \nright_pose:\n{right_palm}")
+            
 
-             #fallback: return prior q and zero torques if available, matching unitree pattern
-            return current_arm_q, np.zeros(self.reduced_robot.model.nv)
+        #fallback: return prior q and zero torques if available, matching unitree pattern
+        return current_arm_q, np.zeros(self.reduced_robot.model.nv)
 
