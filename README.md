@@ -1,2 +1,2 @@
 # Ikarus_Teleop
-IK implentation of Ikarus control
+Ikarus control stack
