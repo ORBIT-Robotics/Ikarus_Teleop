@@ -517,6 +517,8 @@
   </collision>
 </link>
 
+<link name="ee_virtual"/>
+
 <joint name="Rigid 1" type="fixed">
   <origin xyz="-0.15 0.0 0.5225" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -660,6 +662,12 @@
   <origin xyz="-0.001 0.0 0.0" rpy="0 0 0"/>
   <parent link="innerbearing_link20R_1"/>
   <child link="handconnector_link21R_1"/>
+</joint>
+
+<joint name="virtual" type="fixed">
+  <origin xyz="-0.150 0 0.0" rpy="0 0 0"/>
+  <parent link="handconnector_link21R_1"/>
+  <child link="ee_virtual"/>
 </joint>
 
 </robot>
