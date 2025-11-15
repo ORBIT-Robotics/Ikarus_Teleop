@@ -1,0 +1,656 @@
+<?xml version="1.0" ?>
+<robot name="icarus_half" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find icarus_half_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find icarus_half_description)/urdf/icarus_half.trans" />
+<xacro:include filename="$(find icarus_half_description)/urdf/icarus_half.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="8.238675732874815e-09 3.1554667315040733e-10 0.3514903613249077" rpy="0 0 0"/>
+    <mass value="4.01349323527168"/>
+    <inertia ixx="0.130649" iyy="0.140913" izz="0.011825" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="icarus_connector_linkR_1">
+  <inertial>
+    <origin xyz="0.006498765182035293 7.695491105042257e-10 0.002391923234987048" rpy="0 0 0"/>
+    <mass value="0.15747427328533634"/>
+    <inertia ixx="0.000235" iyy="0.000181" izz="0.000199" ixy="0.0" iyz="-0.0" ixz="7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.15 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/icarus_connector_linkR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.15 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/icarus_connector_linkR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="icarus_connector_linkL_1">
+  <inertial>
+    <origin xyz="-0.0064987161454620745 7.695601847031691e-10 0.002391923234987714" rpy="0 0 0"/>
+    <mass value="0.15747427328533634"/>
+    <inertia ixx="0.000235" iyy="0.000181" izz="0.000199" ixy="0.0" iyz="0.0" ixz="-7e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.15 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/icarus_connector_linkL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.15 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/icarus_connector_linkL_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="panel_link_1">
+  <inertial>
+    <origin xyz="2.3680088032994594e-05 0.01578227473846023 -0.061042461555197214" rpy="0 0 0"/>
+    <mass value="0.1533749620293566"/>
+    <inertia ixx="0.000578" iyy="0.000718" izz="0.000445" ixy="0.0" iyz="2e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.0129 -0.545" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/panel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.0129 -0.545" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/panel_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor1_link1R_1">
+  <inertial>
+    <origin xyz="-0.021857464819254685 3.968559222383009e-05 4.0745153922272515e-05" rpy="0 0 0"/>
+    <mass value="2.73842616957922"/>
+    <inertia ixx="0.003104" iyy="0.002101" izz="0.002104" ixy="-3e-06" iyz="-0.0" ixz="-3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.18 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor1_link1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.18 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor1_link1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="connector_link2R_1">
+  <inertial>
+    <origin xyz="-0.030526797904581765 -1.188606087452361e-08 1.5337773384693776e-08" rpy="0 0 0"/>
+    <mass value="0.10495230755525947"/>
+    <inertia ixx="0.000121" iyy="0.000174" izz="0.00015" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2295 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/connector_link2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2295 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/connector_link2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor2_link3R_1">
+  <inertial>
+    <origin xyz="3.9708490567891275e-05 0.018942511432002027 -4.0697209780393706e-05" rpy="0 0 0"/>
+    <mass value="2.7384261695792333"/>
+    <inertia ixx="0.002101" iyy="0.003104" izz="0.002104" ixy="-3e-06" iyz="3e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3165 0.0204 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor2_link3R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3165 0.0204 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor2_link3R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="uaconnector_link4R_1">
+  <inertial>
+    <origin xyz="-0.03694483347877142 -0.002043388802463235 -2.2067556072480343e-06" rpy="0 0 0"/>
+    <mass value="0.10373809220135007"/>
+    <inertia ixx="0.000119" iyy="0.00015" izz="0.000176" ixy="3.5e-05" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3165 0.0291 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/uaconnector_link4R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3165 0.0291 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/uaconnector_link4R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="case_link5R_1">
+  <inertial>
+    <origin xyz="-0.04555310456096018 -0.0032116715882102463 2.6257147567321226e-08" rpy="0 0 0"/>
+    <mass value="0.10350251099857245"/>
+    <inertia ixx="0.00014" iyy="0.000169" izz="0.000164" ixy="-1.5e-05" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3885 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/case_link5R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3885 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/case_link5R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor3_link6R_1">
+  <inertial>
+    <origin xyz="0.024939225965647682 0.00010596776875229207 9.870262211997272e-07" rpy="0 0 0"/>
+    <mass value="0.9769498564987952"/>
+    <inertia ixx="0.000401" iyy="0.000405" izz="0.000407" ixy="-3e-06" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.45805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor3_link6R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.45805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor3_link6R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="slot_link7R_1">
+  <inertial>
+    <origin xyz="-0.010808098048693704 -0.014862347727482468 2.4195766612500336e-08" rpy="0 0 0"/>
+    <mass value="0.01067094946660519"/>
+    <inertia ixx="8e-06" iyy="7e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.46555 -0.0499 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/slot_link7R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.46555 -0.0499 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/slot_link7R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bearingouter_link10R_1">
+  <inertial>
+    <origin xyz="-0.007629608069833871 7.695533299142965e-10 2.419576583534422e-08" rpy="0 0 0"/>
+    <mass value="0.3881951668433359"/>
+    <inertia ixx="0.000657" iyy="0.000335" izz="0.000335" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/bearingouter_link10R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/bearingouter_link10R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="baringattacher_link8R_1">
+  <inertial>
+    <origin xyz="0.009727205733415123 2.509318952279016e-09 -6.727516910220999e-08" rpy="0 0 0"/>
+    <mass value="0.01613078980443655"/>
+    <inertia ixx="5e-06" iyy="3e-06" izz="3e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/baringattacher_link8R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/baringattacher_link8R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bearinginner_link9R_1">
+  <inertial>
+    <origin xyz="0.006500022074495682 7.695536139752657e-10 2.4195767056589546e-08" rpy="0 0 0"/>
+    <mass value="0.27223986557227087"/>
+    <inertia ixx="0.000191" iyy="0.0001" izz="0.0001" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.50205 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/bearinginner_link9R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.50205 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/bearinginner_link9R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="frame1_link11R_1">
+  <inertial>
+    <origin xyz="-0.08735342300595428 0.014789957251909326 0.0099322522250187" rpy="0 0 0"/>
+    <mass value="0.17567366682185706"/>
+    <inertia ixx="0.000163" iyy="0.000428" izz="0.000436" ixy="6.1e-05" iyz="3e-06" ixz="2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/frame1_link11R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/frame1_link11R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor4_link13R_1">
+  <inertial>
+    <origin xyz="9.820238224822475e-07 0.0001059697281937627 -0.024939176523008477" rpy="0 0 0"/>
+    <mass value="0.9769498564987971"/>
+    <inertia ixx="0.000407" iyy="0.000405" izz="0.000401" ixy="-0.0" iyz="3e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.54155 -0.0024 -0.552" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor4_link13R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.54155 -0.0024 -0.552" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor4_link13R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="frame2_link12R_1">
+  <inertial>
+    <origin xyz="0.011932252870944127 0.12522967487047618 0.0010753844053042472" rpy="0 0 0"/>
+    <mass value="0.06832532468162396"/>
+    <inertia ixx="3.9e-05" iyy="0.000144" izz="0.000171" ixy="1.8e-05" iyz="-5e-06" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.592816 0.109986 -0.490521" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/frame2_link12R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.592816 0.109986 -0.490521" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/frame2_link12R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="outerbearing_link18R_1">
+  <inertial>
+    <origin xyz="-0.007370347781175068 7.695541101061798e-10 2.419576594636652e-08" rpy="0 0 0"/>
+    <mass value="0.38819516684333627"/>
+    <inertia ixx="0.000657" iyy="0.000335" izz="0.000335" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.71405 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/outerbearing_link18R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.71405 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/outerbearing_link18R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor5_link17R_1">
+  <inertial>
+    <origin xyz="0.020259091684466157 9.584692532982678e-05 9.55805947803201e-05" rpy="0 0 0"/>
+    <mass value="0.7753717946682805"/>
+    <inertia ixx="0.00032" iyy="0.000267" izz="0.000267" ixy="-2e-06" iyz="-1e-06" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.69305 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor5_link17R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.69305 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/motor5_link17R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bearingright_link14R_1">
+  <inertial>
+    <origin xyz="2.2074495675816763e-08 7.695540207679208e-10 0.0035000310029996706" rpy="0 0 0"/>
+    <mass value="0.027522236601038728"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="7e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.66305 -0.0024 -0.554479" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/bearingright_link14R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.66305 -0.0024 -0.554479" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/bearingright_link14R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="innerbearing_link20R_1">
+  <inertial>
+    <origin xyz="0.006500022074495848 7.695541135756268e-10 2.419576583534422e-08" rpy="0 0 0"/>
+    <mass value="0.27223986557227076"/>
+    <inertia ixx="0.000191" iyy="0.0001" izz="0.0001" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.72805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/innerbearing_link20R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.72805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/innerbearing_link20R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="bearingleft_link16R_1">
+  <inertial>
+    <origin xyz="2.2074495786839066e-08 7.695543954681916e-10 -0.003499982611467334" rpy="0 0 0"/>
+    <mass value="0.027522236601038783"/>
+    <inertia ixx="4e-06" iyy="4e-06" izz="7e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.66305 -0.0024 -0.490521" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/bearingleft_link16R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.66305 -0.0024 -0.490521" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/bearingleft_link16R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="elbowconnector_link15R_1">
+  <inertial>
+    <origin xyz="-0.024946179570467297 -5.457518240972259e-05 -0.0385541344982111" rpy="0 0 0"/>
+    <mass value="0.059039507618904356"/>
+    <inertia ixx="7.9e-05" iyy="5.8e-05" izz="5.9e-05" ixy="0.0" iyz="0.0" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.66305 -0.0024 -0.561479" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/elbowconnector_link15R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.66305 -0.0024 -0.561479" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/elbowconnector_link15R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="handconnector_link21R_1">
+  <inertial>
+    <origin xyz="-0.013822435412159217 -5.0687373962135344e-06 2.4157804590085874e-07" rpy="0 0 0"/>
+    <mass value="0.06934651168813166"/>
+    <inertia ixx="5.6e-05" iyy="5.3e-05" izz="5.8e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.72905 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/handconnector_link21R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.72905 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://icarus_half_description/meshes/handconnector_link21R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 1" type="fixed">
+  <origin xyz="-0.15 0.0 0.5225" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="icarus_connector_linkR_1"/>
+</joint>
+
+<joint name="Rigid 2" type="fixed">
+  <origin xyz="0.15 0.0 0.5225" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="icarus_connector_linkL_1"/>
+</joint>
+
+<joint name="Rigid 3" type="fixed">
+  <origin xyz="0.0 -0.0129 0.545" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="panel_link_1"/>
+</joint>
+
+<joint name="Rigid 4" type="fixed">
+  <origin xyz="-0.03 0.0 0.0" rpy="0 0 0"/>
+  <parent link="icarus_connector_linkR_1"/>
+  <child link="motor1_link1R_1"/>
+</joint>
+
+<joint name="Shoulder1R" type="continuous">
+  <origin xyz="-0.0495 0.0 0.0" rpy="0 0 0"/>
+  <parent link="motor1_link1R_1"/>
+  <child link="connector_link2R_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+</joint>
+
+<joint name="Rigid 6" type="fixed">
+  <origin xyz="-0.087 -0.0204 0.0" rpy="0 0 0"/>
+  <parent link="connector_link2R_1"/>
+  <child link="motor2_link3R_1"/>
+</joint>
+
+<joint name="Shoulder2R" type="revolute">
+  <origin xyz="0.0 -0.0087 0.0" rpy="0 0 0"/>
+  <parent link="motor2_link3R_1"/>
+  <child link="uaconnector_link4R_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="1.832596" lower="-1.832596" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Rigid 8" type="fixed">
+  <origin xyz="-0.072 0.0315 0.0" rpy="0 0 0"/>
+  <parent link="uaconnector_link4R_1"/>
+  <child link="case_link5R_1"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="-0.06955 0.0 0.0" rpy="0 0 0"/>
+  <parent link="case_link5R_1"/>
+  <child link="motor3_link6R_1"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="-0.07705 0.0475 0.0" rpy="0 0 0"/>
+  <parent link="case_link5R_1"/>
+  <child link="slot_link7R_1"/>
+</joint>
+
+<joint name="Rigid 11" type="fixed">
+  <origin xyz="-0.09955 0.0 0.0" rpy="0 0 0"/>
+  <parent link="case_link5R_1"/>
+  <child link="bearingouter_link10R_1"/>
+</joint>
+
+<joint name="Rigid 12" type="fixed">
+  <origin xyz="0.014 0.0 0.0" rpy="0 0 0"/>
+  <parent link="bearinginner_link9R_1"/>
+  <child link="baringattacher_link8R_1"/>
+</joint>
+
+<joint name="Shoulder3R" type="continuous">
+  <origin xyz="-0.014 0.0 0.0" rpy="0 0 0"/>
+  <parent link="bearingouter_link10R_1"/>
+  <child link="bearinginner_link9R_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rigid 14" type="fixed">
+  <origin xyz="0.014 0.0 0.0" rpy="0 0 0"/>
+  <parent link="bearinginner_link9R_1"/>
+  <child link="frame1_link11R_1"/>
+</joint>
+
+<joint name="Rigid 15" type="fixed">
+  <origin xyz="-0.0535 0.0 0.0295" rpy="0 0 0"/>
+  <parent link="frame1_link11R_1"/>
+  <child link="motor4_link13R_1"/>
+</joint>
+
+<joint name="Rigid 16" type="fixed">
+  <origin xyz="-0.104766 -0.112386 -0.031979" rpy="0 0 0"/>
+  <parent link="frame1_link11R_1"/>
+  <child link="frame2_link12R_1"/>
+</joint>
+
+<joint name="Rigid 22" type="fixed">
+  <origin xyz="-0.051 0.0 -0.038979" rpy="0 0 0"/>
+  <parent link="elbowconnector_link15R_1"/>
+  <child link="outerbearing_link18R_1"/>
+</joint>
+
+<joint name="Rigid 23" type="fixed">
+  <origin xyz="-0.03 0.0 -0.038979" rpy="0 0 0"/>
+  <parent link="elbowconnector_link15R_1"/>
+  <child link="motor5_link17R_1"/>
+</joint>
+
+<joint name="ElbowR" type="revolute">
+  <origin xyz="-0.175 0.0 0.031979" rpy="0 0 0"/>
+  <parent link="frame1_link11R_1"/>
+  <child link="bearingright_link14R_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="0.610865" lower="-2.356194" effort="100" velocity="100"/>
+</joint>
+
+<joint name="uaR" type="continuous">
+  <origin xyz="-0.014 0.0 0.0" rpy="0 0 0"/>
+  <parent link="outerbearing_link18R_1"/>
+  <child link="innerbearing_link20R_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+</joint>
+
+<joint name="Rigid 28" type="fixed">
+  <origin xyz="-0.070234 0.112386 0.0" rpy="0 0 0"/>
+  <parent link="frame2_link12R_1"/>
+  <child link="bearingleft_link16R_1"/>
+</joint>
+
+<joint name="Rigid 29" type="fixed">
+  <origin xyz="0.0 0.0 0.007" rpy="0 0 0"/>
+  <parent link="bearingright_link14R_1"/>
+  <child link="elbowconnector_link15R_1"/>
+</joint>
+
+<joint name="Rigid 30" type="fixed">
+  <origin xyz="-0.001 0.0 0.0" rpy="0 0 0"/>
+  <parent link="innerbearing_link20R_1"/>
+  <child link="handconnector_link21R_1"/>
+</joint>
+
+</robot>

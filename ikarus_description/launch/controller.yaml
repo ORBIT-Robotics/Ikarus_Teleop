@@ -1,0 +1,27 @@
+icarus_half_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  # Position Controllers --------------------------------------
+  Shoulder1R_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Shoulder1R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Shoulder2R_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Shoulder2R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  Shoulder3R_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Shoulder3R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  ElbowR_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: ElbowR
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  uaR_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: uaR
+    pid: {p: 100.0, i: 0.01, d: 10.0}

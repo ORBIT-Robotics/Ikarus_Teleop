@@ -1,0 +1,9 @@
+<launch>
+
+<rosparam file="$(find icarus_half_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="icarus_half" args="Shoulder1R_position_controller Shoulder2R_position_controller Shoulder3R_position_controller ElbowR_position_controller uaR_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/icarus_half/joint_states"/>
+</node>
+
+</launch>
