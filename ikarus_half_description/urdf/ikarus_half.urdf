@@ -1,9 +1,18 @@
 <?xml version="1.0" ?>
-<robot name="icarus_half" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="ikarus_half" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find icarus_half_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find icarus_half_description)/urdf/icarus_half.trans" />
-<xacro:include filename="$(find icarus_half_description)/urdf/icarus_half.gazebo" />
+
+<material name="white">
+  <color rgba="1 1 1 1"/>
+</material>
+<material name="silver">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
+<material name="black">
+  <color rgba="0 0 0 1"/>
+</material>
+
+
 <link name="base_link">
   <inertial>
     <origin xyz="8.238675732874815e-09 3.1554667315040733e-10 0.3514903613249077" rpy="0 0 0"/>
@@ -13,14 +22,14 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -34,14 +43,14 @@
   <visual>
     <origin xyz="0.15 -0.0 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/icarus_connector_linkR_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/icarus_connector_linkR_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.15 -0.0 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/icarus_connector_linkR_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/icarus_connector_linkR_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -55,14 +64,14 @@
   <visual>
     <origin xyz="-0.15 -0.0 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/icarus_connector_linkL_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/icarus_connector_linkL_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="-0.15 -0.0 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/icarus_connector_linkL_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/icarus_connector_linkL_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -76,14 +85,14 @@
   <visual>
     <origin xyz="-0.0 0.0129 -0.545" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/panel_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/panel_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="-0.0 0.0129 -0.545" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/panel_link_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/panel_link_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -97,14 +106,14 @@
   <visual>
     <origin xyz="0.18 -0.0 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor1_link1R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor1_link1R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.18 -0.0 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor1_link1R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor1_link1R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -118,14 +127,14 @@
   <visual>
     <origin xyz="0.2295 -0.0 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/connector_link2R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/connector_link2R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.2295 -0.0 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/connector_link2R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/connector_link2R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -139,14 +148,14 @@
   <visual>
     <origin xyz="0.3165 0.0204 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor2_link3R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor2_link3R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.3165 0.0204 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor2_link3R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor2_link3R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -160,14 +169,14 @@
   <visual>
     <origin xyz="0.3165 0.0291 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/uaconnector_link4R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/uaconnector_link4R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.3165 0.0291 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/uaconnector_link4R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/uaconnector_link4R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -181,14 +190,14 @@
   <visual>
     <origin xyz="0.3885 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/case_link5R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/case_link5R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.3885 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/case_link5R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/case_link5R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -202,14 +211,14 @@
   <visual>
     <origin xyz="0.45805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor3_link6R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor3_link6R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.45805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor3_link6R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor3_link6R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -223,14 +232,14 @@
   <visual>
     <origin xyz="0.46555 -0.0499 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/slot_link7R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/slot_link7R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.46555 -0.0499 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/slot_link7R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/slot_link7R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -244,14 +253,14 @@
   <visual>
     <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/bearingouter_link10R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/bearingouter_link10R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/bearingouter_link10R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/bearingouter_link10R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -265,14 +274,14 @@
   <visual>
     <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/baringattacher_link8R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/baringattacher_link8R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/baringattacher_link8R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/baringattacher_link8R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -286,14 +295,14 @@
   <visual>
     <origin xyz="0.50205 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/bearinginner_link9R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/bearinginner_link9R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.50205 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/bearinginner_link9R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/bearinginner_link9R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -307,14 +316,14 @@
   <visual>
     <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/frame1_link11R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/frame1_link11R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.48805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/frame1_link11R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/frame1_link11R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -328,14 +337,14 @@
   <visual>
     <origin xyz="0.54155 -0.0024 -0.552" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor4_link13R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor4_link13R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.54155 -0.0024 -0.552" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor4_link13R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor4_link13R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -349,14 +358,14 @@
   <visual>
     <origin xyz="0.592816 0.109986 -0.490521" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/frame2_link12R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/frame2_link12R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.592816 0.109986 -0.490521" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/frame2_link12R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/frame2_link12R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -370,14 +379,14 @@
   <visual>
     <origin xyz="0.71405 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/outerbearing_link18R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/outerbearing_link18R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.71405 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/outerbearing_link18R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/outerbearing_link18R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -391,14 +400,14 @@
   <visual>
     <origin xyz="0.69305 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor5_link17R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor5_link17R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.69305 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/motor5_link17R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/motor5_link17R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -412,14 +421,14 @@
   <visual>
     <origin xyz="0.66305 -0.0024 -0.554479" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/bearingright_link14R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/bearingright_link14R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.66305 -0.0024 -0.554479" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/bearingright_link14R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/bearingright_link14R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -433,14 +442,14 @@
   <visual>
     <origin xyz="0.72805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/innerbearing_link20R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/innerbearing_link20R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.72805 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/innerbearing_link20R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/innerbearing_link20R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -454,14 +463,14 @@
   <visual>
     <origin xyz="0.66305 -0.0024 -0.490521" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/bearingleft_link16R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/bearingleft_link16R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin xyz="0.66305 -0.0024 -0.490521" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/bearingleft_link16R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/bearingleft_link16R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -475,14 +484,14 @@
   <visual>
     <origin xyz="0.66305 -0.0024 -0.561479" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/elbowconnector_link15R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/elbowconnector_link15R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.66305 -0.0024 -0.561479" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/elbowconnector_link15R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/elbowconnector_link15R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -496,14 +505,14 @@
   <visual>
     <origin xyz="0.72905 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/handconnector_link21R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/handconnector_link21R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="black"/>
   </visual>
   <collision>
     <origin xyz="0.72905 -0.0024 -0.5225" rpy="0 0 0"/>
     <geometry>
-      <mesh filename="package://icarus_half_description/meshes/handconnector_link21R_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://ikarus_half_description/meshes/handconnector_link21R_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>

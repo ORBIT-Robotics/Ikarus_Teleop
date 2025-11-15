@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(icarus_half_description)
+project(ikarus_half_description)
 
 find_package(ament_cmake REQUIRED)
 
