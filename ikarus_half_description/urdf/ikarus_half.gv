@@ -1,0 +1,77 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"icarus_connector_linkR_1" [label="icarus_connector_linkR_1"];
+"motor1_link1R_1" [label="motor1_link1R_1"];
+"connector_link2R_1" [label="connector_link2R_1"];
+"motor2_link3R_1" [label="motor2_link3R_1"];
+"uaconnector_link4R_1" [label="uaconnector_link4R_1"];
+"case_link5R_1" [label="case_link5R_1"];
+"slot_link7R_1" [label="slot_link7R_1"];
+"bearingouter_link10R_1" [label="bearingouter_link10R_1"];
+"bearinginner_link9R_1" [label="bearinginner_link9R_1"];
+"baringattacher_link8R_1" [label="baringattacher_link8R_1"];
+"frame1_link11R_1" [label="frame1_link11R_1"];
+"bearingright_link14R_1" [label="bearingright_link14R_1"];
+"elbowconnector_link15R_1" [label="elbowconnector_link15R_1"];
+"outerbearing_link18R_1" [label="outerbearing_link18R_1"];
+"innerbearing_link20R_1" [label="innerbearing_link20R_1"];
+"handconnector_link21R_1" [label="handconnector_link21R_1"];
+"ee_virtual" [label="ee_virtual"];
+"motor5_link17R_1" [label="motor5_link17R_1"];
+"motor4_link13R_1" [label="motor4_link13R_1"];
+"frame2_link12R_1" [label="frame2_link12R_1"];
+"bearingleft_link16R_1" [label="bearingleft_link16R_1"];
+"motor3_link6R_1" [label="motor3_link6R_1"];
+"icarus_connector_linkL_1" [label="icarus_connector_linkL_1"];
+"panel_link_1" [label="panel_link_1"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "Rigid1" [label="xyz: -0.15 0 0.5225 \nrpy: 0 -0 0"]
+"Rigid1" -> "icarus_connector_linkR_1"
+"icarus_connector_linkR_1" -> "Rigid4" [label="xyz: -0.03 0 0 \nrpy: 0 -0 0"]
+"Rigid4" -> "motor1_link1R_1"
+"motor1_link1R_1" -> "Shoulder1R" [label="xyz: -0.0495 0 0 \nrpy: 0 -0 0"]
+"Shoulder1R" -> "connector_link2R_1"
+"connector_link2R_1" -> "Rigid6" [label="xyz: -0.087 -0.0204 0 \nrpy: 0 -0 0"]
+"Rigid6" -> "motor2_link3R_1"
+"motor2_link3R_1" -> "Shoulder2R" [label="xyz: 0 -0.0087 0 \nrpy: 0 -0 0"]
+"Shoulder2R" -> "uaconnector_link4R_1"
+"uaconnector_link4R_1" -> "Rigid8" [label="xyz: -0.072 0.0315 0 \nrpy: 0 -0 0"]
+"Rigid8" -> "case_link5R_1"
+"case_link5R_1" -> "Rigid10" [label="xyz: -0.07705 0.0475 0 \nrpy: 0 -0 0"]
+"Rigid10" -> "slot_link7R_1"
+"case_link5R_1" -> "Rigid11" [label="xyz: -0.09955 0 0 \nrpy: 0 -0 0"]
+"Rigid11" -> "bearingouter_link10R_1"
+"bearingouter_link10R_1" -> "Shoulder3R" [label="xyz: -0.014 0 0 \nrpy: 0 -0 0"]
+"Shoulder3R" -> "bearinginner_link9R_1"
+"bearinginner_link9R_1" -> "Rigid12" [label="xyz: 0.014 0 0 \nrpy: 0 -0 0"]
+"Rigid12" -> "baringattacher_link8R_1"
+"bearinginner_link9R_1" -> "Rigid14" [label="xyz: 0.014 0 0 \nrpy: 0 -0 0"]
+"Rigid14" -> "frame1_link11R_1"
+"frame1_link11R_1" -> "ElbowR" [label="xyz: -0.175 0 0.031979 \nrpy: 0 -0 0"]
+"ElbowR" -> "bearingright_link14R_1"
+"bearingright_link14R_1" -> "Rigid29" [label="xyz: 0 0 0.007 \nrpy: 0 -0 0"]
+"Rigid29" -> "elbowconnector_link15R_1"
+"elbowconnector_link15R_1" -> "Rigid22" [label="xyz: -0.051 0 -0.038979 \nrpy: 0 -0 0"]
+"Rigid22" -> "outerbearing_link18R_1"
+"outerbearing_link18R_1" -> "uaR" [label="xyz: -0.014 0 0 \nrpy: 0 -0 0"]
+"uaR" -> "innerbearing_link20R_1"
+"innerbearing_link20R_1" -> "Rigid30" [label="xyz: -0.001 0 0 \nrpy: 0 -0 0"]
+"Rigid30" -> "handconnector_link21R_1"
+"handconnector_link21R_1" -> "virtual" [label="xyz: -0.15 0 0 \nrpy: 0 -0 0"]
+"virtual" -> "ee_virtual"
+"elbowconnector_link15R_1" -> "Rigid23" [label="xyz: -0.03 0 -0.038979 \nrpy: 0 -0 0"]
+"Rigid23" -> "motor5_link17R_1"
+"frame1_link11R_1" -> "Rigid15" [label="xyz: -0.0535 0 0.0295 \nrpy: 0 -0 0"]
+"Rigid15" -> "motor4_link13R_1"
+"frame1_link11R_1" -> "Rigid16" [label="xyz: -0.104766 -0.112386 -0.031979 \nrpy: 0 -0 0"]
+"Rigid16" -> "frame2_link12R_1"
+"frame2_link12R_1" -> "Rigid28" [label="xyz: -0.070234 0.112386 0 \nrpy: 0 -0 0"]
+"Rigid28" -> "bearingleft_link16R_1"
+"case_link5R_1" -> "Rigid9" [label="xyz: -0.06955 0 0 \nrpy: 0 -0 0"]
+"Rigid9" -> "motor3_link6R_1"
+"base_link" -> "Rigid2" [label="xyz: 0.15 0 0.5225 \nrpy: 0 -0 0"]
+"Rigid2" -> "icarus_connector_linkL_1"
+"base_link" -> "Rigid3" [label="xyz: 0 -0.0129 0.545 \nrpy: 0 -0 0"]
+"Rigid3" -> "panel_link_1"
+}

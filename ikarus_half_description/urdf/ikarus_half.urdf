@@ -519,25 +519,25 @@
 
 <link name="ee_virtual"/>
 
-<joint name="Rigid 1" type="fixed">
+<joint name="Rigid1" type="fixed">
   <origin xyz="-0.15 0.0 0.5225" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="icarus_connector_linkR_1"/>
 </joint>
 
-<joint name="Rigid 2" type="fixed">
+<joint name="Rigid2" type="fixed">
   <origin xyz="0.15 0.0 0.5225" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="icarus_connector_linkL_1"/>
 </joint>
 
-<joint name="Rigid 3" type="fixed">
+<joint name="Rigid3" type="fixed">
   <origin xyz="0.0 -0.0129 0.545" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="panel_link_1"/>
 </joint>
 
-<joint name="Rigid 4" type="fixed">
+<joint name="Rigid4" type="fixed">
   <origin xyz="-0.03 0.0 0.0" rpy="0 0 0"/>
   <parent link="icarus_connector_linkR_1"/>
   <child link="motor1_link1R_1"/>
@@ -550,7 +550,7 @@
   <axis xyz="1.0 -0.0 0.0"/>
 </joint>
 
-<joint name="Rigid 6" type="fixed">
+<joint name="Rigid6" type="fixed">
   <origin xyz="-0.087 -0.0204 0.0" rpy="0 0 0"/>
   <parent link="connector_link2R_1"/>
   <child link="motor2_link3R_1"/>
@@ -564,31 +564,31 @@
   <limit upper="1.832596" lower="-1.832596" effort="100" velocity="100"/>
 </joint>
 
-<joint name="Rigid 8" type="fixed">
+<joint name="Rigid8" type="fixed">
   <origin xyz="-0.072 0.0315 0.0" rpy="0 0 0"/>
   <parent link="uaconnector_link4R_1"/>
   <child link="case_link5R_1"/>
 </joint>
 
-<joint name="Rigid 9" type="fixed">
+<joint name="Rigid9" type="fixed">
   <origin xyz="-0.06955 0.0 0.0" rpy="0 0 0"/>
   <parent link="case_link5R_1"/>
   <child link="motor3_link6R_1"/>
 </joint>
 
-<joint name="Rigid 10" type="fixed">
+<joint name="Rigid10" type="fixed">
   <origin xyz="-0.07705 0.0475 0.0" rpy="0 0 0"/>
   <parent link="case_link5R_1"/>
   <child link="slot_link7R_1"/>
 </joint>
 
-<joint name="Rigid 11" type="fixed">
+<joint name="Rigid11" type="fixed">
   <origin xyz="-0.09955 0.0 0.0" rpy="0 0 0"/>
   <parent link="case_link5R_1"/>
   <child link="bearingouter_link10R_1"/>
 </joint>
 
-<joint name="Rigid 12" type="fixed">
+<joint name="Rigid12" type="fixed">
   <origin xyz="0.014 0.0 0.0" rpy="0 0 0"/>
   <parent link="bearinginner_link9R_1"/>
   <child link="baringattacher_link8R_1"/>
@@ -601,31 +601,31 @@
   <axis xyz="1.0 0.0 0.0"/>
 </joint>
 
-<joint name="Rigid 14" type="fixed">
+<joint name="Rigid14" type="fixed">
   <origin xyz="0.014 0.0 0.0" rpy="0 0 0"/>
   <parent link="bearinginner_link9R_1"/>
   <child link="frame1_link11R_1"/>
 </joint>
 
-<joint name="Rigid 15" type="fixed">
+<joint name="Rigid15" type="fixed">
   <origin xyz="-0.0535 0.0 0.0295" rpy="0 0 0"/>
   <parent link="frame1_link11R_1"/>
   <child link="motor4_link13R_1"/>
 </joint>
 
-<joint name="Rigid 16" type="fixed">
+<joint name="Rigid16" type="fixed">
   <origin xyz="-0.104766 -0.112386 -0.031979" rpy="0 0 0"/>
   <parent link="frame1_link11R_1"/>
   <child link="frame2_link12R_1"/>
 </joint>
 
-<joint name="Rigid 22" type="fixed">
+<joint name="Rigid22" type="fixed">
   <origin xyz="-0.051 0.0 -0.038979" rpy="0 0 0"/>
   <parent link="elbowconnector_link15R_1"/>
   <child link="outerbearing_link18R_1"/>
 </joint>
 
-<joint name="Rigid 23" type="fixed">
+<joint name="Rigid23" type="fixed">
   <origin xyz="-0.03 0.0 -0.038979" rpy="0 0 0"/>
   <parent link="elbowconnector_link15R_1"/>
   <child link="motor5_link17R_1"/>
@@ -646,19 +646,19 @@
   <axis xyz="1.0 0.0 0.0"/>
 </joint>
 
-<joint name="Rigid 28" type="fixed">
+<joint name="Rigid28" type="fixed">
   <origin xyz="-0.070234 0.112386 0.0" rpy="0 0 0"/>
   <parent link="frame2_link12R_1"/>
   <child link="bearingleft_link16R_1"/>
 </joint>
 
-<joint name="Rigid 29" type="fixed">
+<joint name="Rigid29" type="fixed">
   <origin xyz="0.0 0.0 0.007" rpy="0 0 0"/>
   <parent link="bearingright_link14R_1"/>
   <child link="elbowconnector_link15R_1"/>
 </joint>
 
-<joint name="Rigid 30" type="fixed">
+<joint name="Rigid30" type="fixed">
   <origin xyz="-0.001 0.0 0.0" rpy="0 0 0"/>
   <parent link="innerbearing_link20R_1"/>
   <child link="handconnector_link21R_1"/>
