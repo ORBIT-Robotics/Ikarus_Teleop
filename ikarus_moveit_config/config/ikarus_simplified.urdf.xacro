@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ikarus_simplified">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import ikarus_simplified urdf file -->
+    <xacro:include filename="$(find ikarus_simplified_description)/urdf/ikarus_simplified.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="ikarus_simplified.ros2_control.xacro" />
+
+
+    <xacro:ikarus_simplified_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

@@ -1,14 +1,11 @@
 <?xml version="1.0" ?>
 <robot name="ikarus_simplified" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-<xacro:include filename="$(find ikarus_simplified_description)/urdf/materials.xacro" />
+<material name="silver">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
 
 <link name="base_link">
-  <inertial>
-    <origin xyz="-0.036993498501958544 0.000535168464242951 0.4704100036440144" rpy="0 0 0"/>
-    <mass value="14.940646670024396"/>
-    <inertia ixx="0.233291" iyy="0.447362" izz="0.233143" ixy="-0.000276" iyz="-7.8e-05" ixz="0.028808"/>
-  </inertial>
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0"/>
     <geometry>
@@ -129,6 +126,9 @@
   </collision>
 </link>
 
+<link name="ee_virtual"/>
+
+
 <joint name="Shoulder1R" type="revolute">
   <origin xyz="-0.2295 0.0 0.5225" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -167,6 +167,12 @@
   <child link="link5R_1"/>
   <axis xyz="1.0 0.0 0.0"/>
   <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="virtual_wristR" type="fixed">
+  <origin xyz="-0.150 0 0.0" rpy="0 0 0"/>
+  <parent link="link5R_1"/>
+  <child link="ee_virtual"/>
 </joint>
 
 </robot>

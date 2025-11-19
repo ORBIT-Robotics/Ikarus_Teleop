@@ -1,0 +1,8 @@
+# Default initial positions for ikarus_simplified's ros2_control fake system
+
+initial_positions:
+  ElbowR: 0
+  Shoulder1R: 0
+  Shoulder2R: 0
+  Shoulder3R: 0
+  uaR: 0
