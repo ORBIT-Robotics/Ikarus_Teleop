@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<robot name="ikarus_simplified" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find ikarus_simplified_description)/urdf/materials.xacro" />
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.036993498501958544 0.000535168464242951 0.4704100036440144" rpy="0 0 0"/>
+    <mass value="14.940646670024396"/>
+    <inertia ixx="0.233291" iyy="0.447362" izz="0.233143" ixy="-0.000276" iyz="-7.8e-05" ixz="0.028808"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link1R_1">
+  <inertial>
+    <origin xyz="-0.06404301866941722 -0.0008656106085156539 -2.4159358045783286e-05" rpy="0 0 0"/>
+    <mass value="0.258443802924574"/>
+    <inertia ixx="0.000239" iyy="0.000547" izz="0.000467" ixy="-5e-06" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.2295 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.2295 -0.0 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link2R_1">
+  <inertial>
+    <origin xyz="-0.09506398675500127 0.019754958011181625 -5.640651468130642e-07" rpy="0 0 0"/>
+    <mass value="5.252859816754251"/>
+    <inertia ixx="0.007396" iyy="0.017761" izz="0.019598" ixy="0.00423" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.3165 0.0291 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.3165 0.0291 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link3R_1">
+  <inertial>
+    <origin xyz="-0.06554323713844157 0.01099714475885438 -0.0003115479217139505" rpy="0 0 0"/>
+    <mass value="0.316587528188663"/>
+    <inertia ixx="0.000334" iyy="0.00085" izz="0.000809" ixy="0.000111" iyz="-1e-06" ixz="3e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.50205 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link3R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.50205 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link3R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link4R_1">
+  <inertial>
+    <origin xyz="-0.025490510751819073 7.493799810334625e-06 -0.0387438046521239" rpy="0 0 0"/>
+    <mass value="2.2156371703131614"/>
+    <inertia ixx="0.002381" iyy="0.002248" izz="0.002268" ixy="-1e-06" iyz="2e-06" ixz="-1.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.66305 -0.0024 -0.561479" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link4R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.66305 -0.0024 -0.561479" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link4R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link5R_1">
+  <inertial>
+    <origin xyz="-0.013570893039844933 -4.438774834021435e-06 2.1456501209105028e-07" rpy="0 0 0"/>
+    <mass value="0.07918664432602043"/>
+    <inertia ixx="6.5e-05" iyy="5.5e-05" izz="6.1e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.72805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link5R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.72805 -0.0024 -0.5225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://ikarus_simplified_description/meshes/link5R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Shoulder1R" type="revolute">
+  <origin xyz="-0.2295 0.0 0.5225" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="link1R_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+  <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Shoulder2R" type="revolute">
+  <origin xyz="-0.087 -0.0291 0.0" rpy="0 0 0"/>
+  <parent link="link1R_1"/>
+  <child link="link2R_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="1.832596" lower="-1.832596" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Shoulder3R" type="revolute">
+  <origin xyz="-0.18555 0.0315 0.0" rpy="0 0 0"/>
+  <parent link="link2R_1"/>
+  <child link="link3R_1"/>
+  <axis xyz="1.0 -0.0 0.0"/>
+  <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="ElbowR" type="revolute">
+  <origin xyz="-0.161 0.0 0.038979" rpy="0 0 0"/>
+  <parent link="link3R_1"/>
+  <child link="link4R_1"/>
+  <axis xyz="0.0 0.0 -1.0"/>
+  <limit upper="0.610865" lower="-2.356194" effort="100" velocity="100"/>
+</joint>
+
+<joint name="uaR" type="revolute">
+  <origin xyz="-0.065 0.0 -0.038979" rpy="0 0 0"/>
+  <parent link="link4R_1"/>
+  <child link="link5R_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <limit upper="6.283185" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+</robot>
