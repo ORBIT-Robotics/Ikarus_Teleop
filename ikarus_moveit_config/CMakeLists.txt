@@ -4,7 +4,9 @@ project(ikarus_moveit_config)
 find_package(ament_cmake REQUIRED)
 
 install(
-  PROGRAMS scripts/joint_state_to_array.py
+  PROGRAMS
+    scripts/joint_state_to_array.py
+    scripts/servo_twist_test.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

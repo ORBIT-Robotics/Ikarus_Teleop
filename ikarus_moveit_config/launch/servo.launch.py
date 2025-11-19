@@ -80,4 +80,35 @@ def generate_launch_description():
         ],
     )
 
-    return LaunchDescription([servo_node, joint_state_bridge])
+    ros2_controllers_path = Path(moveit_config.package_path) / "config" / "ros2_controllers.yaml"
+
+    ros2_control_node = Node(
+        package="controller_manager",
+        executable="ros2_control_node",
+        parameters=[moveit_config.robot_description, str(ros2_controllers_path)],
+        output="screen",
+    )
+
+    joint_state_broadcaster_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster"],
+        output="screen",
+    )
+
+    arm_controller_spawner = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["arm_controller"],
+        output="screen",
+    )
+
+    return LaunchDescription(
+        [
+            ros2_control_node,
+            joint_state_broadcaster_spawner,
+            arm_controller_spawner,
+            servo_node,
+            joint_state_bridge,
+        ]
+    )
