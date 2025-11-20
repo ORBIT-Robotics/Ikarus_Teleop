@@ -1,91 +1,49 @@
-"""Launch MoveIt Servo plus joint-state bridge for ikarus_simplified.
+"""MoveIt Servo bringup for ikarus_simplified (structured like upstream examples)."""
 
-This launch spins up:
-- moveit_servo/servo_node_main: consumes Twist commands per config/servo.yaml and
-  publishes trajectory_msgs/JointTrajectory to /arm_controller/joint_trajectory.
-- joint_state_to_array bridge: subscribes to sensor_msgs/JointState on /joint_states
-  and republishes a std_msgs/Float64MultiArray named /ikarus_ik containing
-  [Shoulder1R, Shoulder2R, Shoulder3R, ElbowR, uaR] positions.
-"""
-
+import os
+import yaml
 from pathlib import Path
 
-import yaml
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from moveit_configs_utils import MoveItConfigsBuilder
 
 
+def load_yaml(package_name, file_path):
+    package_path = get_package_share_directory(package_name)
+    absolute_file_path = os.path.join(package_path, file_path)
+
+    try:
+        with open(absolute_file_path, "r") as file:
+            return yaml.safe_load(file)
+    except EnvironmentError:
+        return None
+
+
 def generate_launch_description():
-    # Load your MoveIt config for ikarus_simplified
     moveit_config = (
         MoveItConfigsBuilder("ikarus_simplified", package_name="ikarus_moveit_config")
         .to_moveit_configs()
     )
 
-    # Point to *your* servo.yaml in your package (note: no extra 'o' here)
-    servo_config_path = Path(moveit_config.package_path) / "config" / "servo.yaml"
-    with servo_config_path.open("r") as servo_file:
-        servo_params = yaml.safe_load(servo_file)
-
-    if not isinstance(servo_params, dict):
-        servo_params = {}
-
-    # Normalize to { "moveit_servo": { ... actual parameters ... } }
-    if "moveit_servo" in servo_params:
-        nested = servo_params["moveit_servo"]
-        if isinstance(nested, dict) and "ros__parameters" in nested:
-            servo_param_dict = nested["ros__parameters"]
-        else:
-            servo_param_dict = nested
-    else:
-        servo_param_dict = servo_params
-
-    servo_param_block = {"moveit_servo": servo_param_dict}
-
-    servo_node = Node(
-        package="moveit_servo",
-        executable="servo_node_main",
-        name="moveit_servo",
-        output="screen",
-        parameters=[
-            servo_param_block,
-            moveit_config.robot_description,
-            moveit_config.robot_description_semantic,
-            moveit_config.robot_description_kinematics,
-            moveit_config.joint_limits,
-            moveit_config.planning_pipelines,
-        ],
-        # optional but recommended to remove the warning:
-        # extra_arguments=[{"use_intra_process_comms": True}],
+    ros2_controllers_path = os.path.join(
+        get_package_share_directory("ikarus_moveit_config"),
+        "config",
+        "ros2_controllers.yaml",
     )
 
-    joint_state_bridge = Node(
-        package="ikarus_moveit_config",
-        executable="joint_state_to_array.py",  # keep .py if that's how you installed it
-        name="joint_state_to_array",
+    robot_state_publisher = Node(
+        package="robot_state_publisher",
+        executable="robot_state_publisher",
         output="screen",
-        parameters=[
-            {
-                "input_topic": "/joint_states",
-                "output_topic": "/ikarus_ik",
-                "joint_order": [
-                    "Shoulder1R",
-                    "Shoulder2R",
-                    "Shoulder3R",
-                    "ElbowR",
-                    "uaR",
-                ],
-            }
-        ],
+        parameters=[moveit_config.robot_description],
     )
-
-    ros2_controllers_path = Path(moveit_config.package_path) / "config" / "ros2_controllers.yaml"
 
     ros2_control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
-        parameters=[moveit_config.robot_description, str(ros2_controllers_path)],
+        parameters=[moveit_config.robot_description, ros2_controllers_path],
         output="screen",
     )
 
@@ -103,12 +61,28 @@ def generate_launch_description():
         output="screen",
     )
 
+    # Load Servo params
+    servo_yaml = load_yaml("ikarus_moveit_config", "config/servo.yaml")
+    servo_params = {"moveit_servo": servo_yaml}
+
+    servo_node = Node(
+        package="moveit_servo",
+        executable="servo_node_main",
+        parameters=[
+            servo_params,
+            moveit_config.robot_description,
+            moveit_config.robot_description_semantic,
+            moveit_config.robot_description_kinematics,
+        ],
+        output="screen",
+    )
+
     return LaunchDescription(
         [
+            robot_state_publisher,
             ros2_control_node,
             joint_state_broadcaster_spawner,
             arm_controller_spawner,
             servo_node,
-            joint_state_bridge,
         ]
     )
