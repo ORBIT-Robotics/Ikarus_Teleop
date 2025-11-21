@@ -61,6 +61,19 @@ def generate_launch_description():
         output="screen",
     )
 
+    joint_state_to_array = Node(
+        package="ikarus_moveit_config",
+        executable="joint_state_to_array.py",
+        output="screen",
+        parameters=[
+            {
+                "input_topic": "/joint_states",
+                "output_topic": "/ikarus_ik",
+                # "joint_order": ["Shoulder1R", "Shoulder2R", "Shoulder3R", "ElbowR", "uaR"],
+            }
+        ],
+    )
+
     # Load Servo params
     servo_yaml = load_yaml("ikarus_moveit_config", "config/servo.yaml")
     servo_params = {"moveit_servo": servo_yaml}
@@ -83,6 +96,7 @@ def generate_launch_description():
             ros2_control_node,
             joint_state_broadcaster_spawner,
             arm_controller_spawner,
+            joint_state_to_array,
             servo_node,
         ]
     )
