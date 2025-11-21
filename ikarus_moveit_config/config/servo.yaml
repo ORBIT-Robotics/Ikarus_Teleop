@@ -14,7 +14,6 @@ command_out_type: trajectory_msgs/JointTrajectory
 # Command input (TwistStamped velocity)
 command_in_type: speed_units
 cartesian_command_in_topic: ~/delta_twist_cmds
-joint_command_in_topic: ~/delta_joint_cmds
 publish_period: 0.01
 low_latency_mode: true
 incoming_command_timeout: 0.1
@@ -24,7 +23,6 @@ num_outgoing_halt_msgs_to_publish: 4
 publish_joint_positions: true
 publish_joint_velocities: false
 publish_joint_accelerations: false
-smoothing_filter_plugin_name: online_signal_smoothing::ButterworthFilterPlugin
 
 # Velocity scaling limits
 scale:
@@ -33,7 +31,11 @@ scale:
   joint: 0.5
 
 # Collision checking
-check_collisions: true
+check_collisions: false
 collision_check_rate: 50.0
 self_collision_proximity_threshold: 0.02
 scene_collision_proximity_threshold: 0.03
+
+check_octomap_collisions: false
+
+is_primary_planning_scene_monitor: false
