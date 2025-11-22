@@ -6,6 +6,8 @@ find_package(ament_cmake REQUIRED)
 install(
   PROGRAMS
     scripts/joint_state_to_array.py
+    scripts/openteach_to_twist.py
+    scripts/test_twist.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

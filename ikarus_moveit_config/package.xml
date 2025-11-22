@@ -20,6 +20,7 @@
 
   <exec_depend>rclpy</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 
   <exec_depend>moveit_ros_move_group</exec_depend>

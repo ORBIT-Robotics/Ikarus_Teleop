@@ -13,7 +13,7 @@ command_out_type: trajectory_msgs/JointTrajectory
 
 # Command input (TwistStamped velocity)
 command_in_type: speed_units
-cartesian_command_in_topic: ~/delta_twist_cmds
+cartesian_command_in_topic: /servo_node/delta_twist_cmds
 publish_period: 0.01
 low_latency_mode: true
 incoming_command_timeout: 0.1
