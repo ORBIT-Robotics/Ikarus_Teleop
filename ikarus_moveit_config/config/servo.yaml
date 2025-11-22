@@ -39,3 +39,9 @@ scene_collision_proximity_threshold: 0.03
 check_octomap_collisions: false
 
 is_primary_planning_scene_monitor: false
+
+# Singularity handling (relaxed values for debugging in sim)
+lower_singularity_threshold: 1000.0          # start slowing down
+hard_stop_singularity_threshold: 1500.0      # emergency stop
+leaving_singularity_threshold_multiplier: 2.0
+joint_limit_margin: 0.1
